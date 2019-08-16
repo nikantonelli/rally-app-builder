@@ -42,9 +42,10 @@ let watch = function(args) {
 };
 
 let run = function(args) {
-  let {port} = args;
+  let {port, raw} = args;
+  raw = args._[2] || raw;
   port = args._[1] || port;
-  return RallyAppBuilder.run({port});
+  return RallyAppBuilder.run({port, raw});
 };
 
 let test = function(args) {
@@ -66,7 +67,8 @@ yargs
   .command(
     'build',
     'Builds the current App.',
-    {templates: {alias: 't', describe: 'The path containing custom html output templates (advanced)'}}
+    {templates: {alias: 't', describe: 'The path containing custom html output templates (advanced)'},
+     raw: { alias: 'x', describe: 'Generate files for raw app (not ExtJs based)'}}
     , build
   )
   .command(
@@ -79,8 +81,9 @@ yargs
   )
   .command(
     'run',
-    'Start a local server and launch the current app in the default browser.',
-    {port: {alias: 'p', default: 1337, describe: 'The port on which to start the local http server'}}
+    'Start a local server and launch the current Ext app in the default browser.',
+    {port: {alias: 'p', default: 1337, describe: 'The port on which to start the local http server'},
+	raw: { alias: 'x', default: 'false', describe: 'Start a raw app instead of Ext app'}}
     , run
   )
   .command(

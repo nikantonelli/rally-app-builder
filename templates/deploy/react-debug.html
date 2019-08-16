@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{name}}</title>
+
+    <script>
+        function loadScripts( scripts, callback) {
+            let pArray = [];
+            scripts.forEach( function(item) {
+                pArray.push(loadScript(item));
+            });
+            Promise.all(pArray).then( (results) => {
+                callback();                
+            });
+        }
+
+        function loadScript ( script ) {
+            let p = new Promise((resolve, reject) => {
+                var ns = document.createElement("script");
+                ns.src = script;
+                ns.type = "text/javascript";
+                ns.onload = function () {
+                    resolve();
+                }
+                ns.onerror = function (e) {
+                    reject();
+                }
+                document.getElementsByTagName("head")[0].appendChild(ns);
+            });
+            return p;
+        }
+    </script>
+
+    {{#remote_javascript_files}}
+    <script type="text/javascript" src="{{{.}}}"></script>
+    {{/remote_javascript_files}}
+
+    <script type="text/javascript">
+        loadScripts(
+                [
+                    {{#local_javascript_files}}
+                      "{{{.}}}",
+                    {{/local_javascript_files}}
+                    "react.js",
+                    "react-dom.js"
+		    "RallyReactSDK.js",
+                ],
+        function() {
+            let app = new {{className}};
+            app.launch();
+        }, true);
+    </script>
+
+{{#remote_css_files}}
+    <link rel="stylesheet" type="text/css" href="{{{.}}}"/>
+{{/remote_css_files}}
+
+{{#css_file_names}}
+    <link rel="stylesheet" type="text/css" href="{{{.}}}"/>
+{{/css_file_names}}
+</head>
+<body>
+{{#html_files}}
+    {{{.}}}
+{{/html_files}}
+</body>
+</html>
