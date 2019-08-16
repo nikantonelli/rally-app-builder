@@ -26,8 +26,9 @@ However, if that does't work (permission errors, etc.) it can be installed local
     build [--templates]
     Builds the current App
 
-    run [--port]
+    run [--port --raw]
     Starts a local server and launches the App in the default browser
+    Raw option starts a basic app from a class in rawApp.js rather than using App.js (ExtJs)
 
     watch [--templates] [--ci]
     Automatically builds the App when files are changed
