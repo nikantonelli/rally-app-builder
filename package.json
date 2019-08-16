@@ -15,7 +15,7 @@
   },
   "dependencies": {
     "async": "0.1.x",
-    "chokidar": "^1.4.3",
+    "chokidar": "^3.0.2",
     "coffeescript": "2.2.1",
     "commander": "0.6.x",
     "express": "^4.17.1",
@@ -23,15 +23,15 @@
     "grunt-cli": "1.2.0",
     "grunt-contrib-clean": "1.0.0",
     "grunt-contrib-concat": "1.0.1",
-    "grunt-contrib-jasmine": "1.1.0",
+    "grunt-contrib-jasmine": "^2.1.0",
     "grunt-contrib-watch": "^1.1.0",
-    "handlebars": "~1.0.11",
+    "handlebars": "^4.1.2",
     "jshint": "^2.10.2",
     "less": "~1.7.0",
-    "lodash": "~3.0.0",
-    "mustache": "0.7.x",
+    "lodash": "^4.17.15",
+    "mustache": "^3.0.1",
     "node-watch": "~0.3.4",
-    "open": "~0.0.5",
+    "open": "^6.4.0",
     "promise-to-validate": "^0.5.0",
     "rally-fetch-github-repo": "0.2.2",
     "request": "^2.88.0",
@@ -41,11 +41,11 @@
     "yargs": "4.3.1"
   },
   "devDependencies": {
-    "eslint": "^4.0.0",
+    "eslint": "^4.19.1",
     "eslint-config-airbnb-base": "^11.2.0",
     "eslint-plugin-import": "^2.3.0",
     "fs-extra": "2.0.0",
-    "mocha": "3.2.x",
+    "mocha": "^6.2.0",
     "sinon": "^1.10.2"
   },
   "scripts": {
