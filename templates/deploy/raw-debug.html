@@ -38,12 +38,11 @@
     <script type="text/javascript">
         loadScripts(
                 [
+                    "react.js",          //Keep these two lines first
+                    "RallyReactSDK.js",
                     {{#local_javascript_files}}
-                      "{{{.}}}",
+                    "{{{.}}}",
                     {{/local_javascript_files}}
-                    "react.js",
-                    "react-dom.js"
-		    "RallyReactSDK.js",
                 ],
         function() {
             let app = new {{className}};

@@ -1,4 +1,4 @@
-class CustomApp() extends RallyReactApp {
+class CustomApp extends RallyReactApp {
 	constructor(config) {
 		super(config);
 	}

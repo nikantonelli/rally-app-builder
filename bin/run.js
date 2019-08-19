@@ -19,13 +19,14 @@ let build = function(args) {
 };
 
 let init = function(args) {
-  let {name, sdk, server, templates} = args;
+  let {name, sdk, server, templates, raw} = args;
   name = args._[1] || name;
   let sdk_version = args._[2] || sdk;
   server = args._[3] || server;
+  raw = args._[4] || raw;
   console.log('Creating a new App.');
   return RallyAppBuilder.init(
-    {name, sdk_version, server, templates},
+    {name, sdk_version, server, templates, raw},
     function(error) {
       if (error) {
         return errorHandler(error);
